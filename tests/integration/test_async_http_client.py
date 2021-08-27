@@ -8,7 +8,7 @@ from solana.transaction import Transaction
 from .utils import AIRDROP_AMOUNT, aconfirm_transaction, assert_valid_response, generate_expected_meta_after_airdrop
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_request_air_drop(alt_stubbed_sender, test_http_client_async):
     """Test air drop to alt_stubbed_sender."""
@@ -20,7 +20,7 @@ async def test_request_air_drop(alt_stubbed_sender, test_http_client_async):
     assert resp["result"]["meta"] == expected_meta
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_send_transaction_and_get_balance(alt_stubbed_sender, alt_stubbed_receiver, test_http_client_async):
     """Test sending a transaction to localnet."""
@@ -70,7 +70,7 @@ async def test_send_transaction_and_get_balance(alt_stubbed_sender, alt_stubbed_
     assert resp["result"]["value"] == 954
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_send_raw_transaction_and_get_balance(alt_stubbed_sender, alt_stubbed_receiver, test_http_client_async):
     """Test sending a raw transaction to localnet."""
@@ -119,7 +119,7 @@ async def test_send_raw_transaction_and_get_balance(alt_stubbed_sender, alt_stub
     assert resp["result"]["value"] == 1954
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_block_commitment(test_http_client_async):
     """Test get block commitment."""
@@ -127,7 +127,7 @@ async def test_get_block_commitment(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_block_time(test_http_client_async):
     """Test get block time."""
@@ -135,7 +135,7 @@ async def test_get_block_time(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_cluster_nodes(test_http_client_async):
     """Test get cluster nodes."""
@@ -143,7 +143,7 @@ async def test_get_cluster_nodes(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_confirmed_block(test_http_client_async):
     """Test get confirmed block."""
@@ -151,7 +151,7 @@ async def test_get_confirmed_block(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_confirmed_block_with_encoding(test_http_client_async):
     """Test get confrimed block with encoding."""
@@ -159,7 +159,7 @@ async def test_get_confirmed_block_with_encoding(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_confirmed_blocks(test_http_client_async):
     """Test get confirmed blocks."""
@@ -167,7 +167,7 @@ async def test_get_confirmed_blocks(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_confirmed_signature_for_address2(test_http_client_async):
     """Test get confirmed signature for address2."""
@@ -178,7 +178,7 @@ async def test_get_confirmed_signature_for_address2(test_http_client_async):
 
 
 # TODO(michael): This RPC call is only available in solana-core v1.7 or newer.
-# @pytest.mark.integration
+# #@pytest.mark.integration
 # @pytest.mark.asyncio
 # async def test_get_signatures_for_address(test_http_client_async_async):
 #     """Test get signatures for addresses."""
@@ -188,7 +188,7 @@ async def test_get_confirmed_signature_for_address2(test_http_client_async):
 #     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_epoch_info(test_http_client_async):
     """Test get epoch info."""
@@ -196,7 +196,7 @@ async def test_get_epoch_info(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_epoch_schedule(test_http_client_async):
     """Test get epoch schedule."""
@@ -204,7 +204,7 @@ async def test_get_epoch_schedule(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_fee_calculator_for_blockhash(test_http_client_async):
     """Test get fee calculator for blockhash."""
@@ -214,7 +214,7 @@ async def test_get_fee_calculator_for_blockhash(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_slot(test_http_client_async):
     """Test get slot."""
@@ -222,7 +222,7 @@ async def test_get_slot(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_fees(test_http_client_async):
     """Test get fees."""
@@ -230,7 +230,7 @@ async def test_get_fees(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_first_available_block(test_http_client_async):
     """Test get first available block."""
@@ -238,7 +238,7 @@ async def test_get_first_available_block(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_genesis_hash(test_http_client_async):
     """Test get genesis hash."""
@@ -246,7 +246,7 @@ async def test_get_genesis_hash(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_identity(test_http_client_async):
     """Test get identity."""
@@ -254,7 +254,7 @@ async def test_get_identity(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_inflation_governor(test_http_client_async):
     """Test get inflation governor."""
@@ -262,7 +262,7 @@ async def test_get_inflation_governor(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_inflation_rate(test_http_client_async):
     """Test get inflation rate."""
@@ -270,7 +270,7 @@ async def test_get_inflation_rate(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_largest_accounts(test_http_client_async):
     """Test get largest accounts."""
@@ -278,7 +278,7 @@ async def test_get_largest_accounts(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_leader_schedule(test_http_client_async):
     """Test get leader schedule."""
@@ -286,7 +286,7 @@ async def test_get_leader_schedule(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_minimum_balance_for_rent_exemption(test_http_client_async):
     """Test get minimum balance for rent exemption."""
@@ -294,7 +294,7 @@ async def test_get_minimum_balance_for_rent_exemption(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_slot_leader(test_http_client_async):
     """Test get slot leader."""
@@ -302,7 +302,7 @@ async def test_get_slot_leader(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_supply(test_http_client_async):
     """Test get slot leader."""
@@ -310,7 +310,7 @@ async def test_get_supply(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_transaction_count(test_http_client_async):
     """Test get transactinon count."""
@@ -318,7 +318,7 @@ async def test_get_transaction_count(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_version(test_http_client_async):
     """Test get version."""
@@ -326,7 +326,7 @@ async def test_get_version(test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_account_info(alt_stubbed_sender, test_http_client_async):
     """Test get_account_info."""
@@ -338,7 +338,7 @@ async def test_get_account_info(alt_stubbed_sender, test_http_client_async):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_vote_accounts(test_http_client_async):
     """Test get vote accounts."""

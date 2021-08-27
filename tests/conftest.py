@@ -9,6 +9,7 @@ from solana.blockhash import Blockhash
 from solana.publickey import PublicKey
 from solana.rpc.api import Client
 from solana.rpc.async_api import AsyncClient
+from solana.rpc.websocket_api import WebsocketClient
 
 
 class Clients(NamedTuple):
@@ -63,7 +64,7 @@ def freeze_authority() -> Account:
     return Account(bytes([6] * PublicKey.LENGTH))
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.fixture(scope="session")
 def test_http_client(docker_services) -> Client:
     """Test http_client.is_connected."""
@@ -72,7 +73,7 @@ def test_http_client(docker_services) -> Client:
     return http_client
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.fixture(scope="session")
 def test_http_client_async(docker_services, event_loop) -> AsyncClient:  # pylint: disable=redefined-outer-name
     """Test http_client.is_connected."""
@@ -86,7 +87,23 @@ def test_http_client_async(docker_services, event_loop) -> AsyncClient:  # pylin
     event_loop.run_until_complete(http_client.close())
 
 
-@pytest.mark.integration
+# #@pytest.mark.integration
+# @pytest.fixture(scope="session")
+# def test_websocket_client(docker_services, event_loop) -> WebsocketClient:  # pylint: disable=redefined-outer-name
+#     """Test websocket_client.is_connected."""
+#     socket_client = WebsocketClient()
+
+# just improvising here
+
+# def check() -> bool:
+#     return event_loop.run_until_complete(socket_client.is_connected())
+
+# docker_services.wait_until_responsive(timeout=15, pause=1, check=check)
+# yield http_client
+# event_loop.run_until_complete(socket_client.close())
+
+
+# @pytest.mark.integration
 @pytest.fixture(scope="session")
 def test_http_clients(docker_services) -> Clients:
     """Test http_client.is_connected."""

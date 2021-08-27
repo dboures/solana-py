@@ -11,7 +11,7 @@ from spl.token.constants import ASSOCIATED_TOKEN_PROGRAM_ID, TOKEN_PROGRAM_ID
 from .utils import AIRDROP_AMOUNT, aconfirm_transaction, assert_valid_response, decode_byte_string
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 @pytest.fixture(scope="module")
 async def test_token(alt_stubbed_sender, freeze_authority, test_http_client_async) -> AsyncToken:
@@ -47,7 +47,7 @@ async def test_token(alt_stubbed_sender, freeze_authority, test_http_client_asyn
     return token_client
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 @pytest.fixture(scope="module")
 async def alt_stubbed_sender_token_account_pk(
@@ -57,7 +57,7 @@ async def alt_stubbed_sender_token_account_pk(
     return await test_token.create_account(alt_stubbed_sender.public_key())
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 @pytest.fixture(scope="module")
 async def alt_stubbed_receiver_token_account_pk(
@@ -67,7 +67,7 @@ async def alt_stubbed_receiver_token_account_pk(
     return await test_token.create_account(alt_stubbed_receiver)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_new_account(
     alt_stubbed_sender, test_http_client_async, test_token
@@ -92,7 +92,7 @@ async def test_new_account(
     assert PublicKey(account_data.owner) == alt_stubbed_sender.public_key()
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_new_associated_account(test_token):  # pylint: disable=redefined-outer-name
     """Test creating a new associated token account."""
@@ -105,7 +105,7 @@ async def test_new_associated_account(test_token):  # pylint: disable=redefined-
     assert token_account_pubkey == expected_token_account_key
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_account_info(
     alt_stubbed_sender, alt_stubbed_sender_token_account_pk, test_token
@@ -124,7 +124,7 @@ async def test_get_account_info(
     assert account_info.close_authority is None
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_mint_info(alt_stubbed_sender, freeze_authority, test_token):  # pylint: disable=redefined-outer-name
     """Test get token mint info."""
@@ -136,7 +136,7 @@ async def test_get_mint_info(alt_stubbed_sender, freeze_authority, test_token): 
     assert mint_info.freeze_authority == freeze_authority.public_key()
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_mint_to(
     alt_stubbed_sender, alt_stubbed_sender_token_account_pk, test_token
@@ -157,7 +157,7 @@ async def test_mint_to(
     assert balance_info["uiAmount"] == 0.001
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_transfer(
     alt_stubbed_sender, alt_stubbed_receiver_token_account_pk, alt_stubbed_sender_token_account_pk, test_token
@@ -179,7 +179,7 @@ async def test_transfer(
     assert balance_info["uiAmount"] == 0.0005
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_burn(
     alt_stubbed_sender, alt_stubbed_sender_token_account_pk, test_token
@@ -204,7 +204,7 @@ async def test_burn(
     assert balance_info["uiAmount"] == 0.0003
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_mint_to_checked(
     alt_stubbed_sender,
@@ -233,7 +233,7 @@ async def test_mint_to_checked(
     assert balance_info["uiAmount"] == 0.001
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_transfer_checked(
     alt_stubbed_sender, alt_stubbed_receiver_token_account_pk, alt_stubbed_sender_token_account_pk, test_token
@@ -261,7 +261,7 @@ async def test_transfer_checked(
     assert balance_info["uiAmount"] == 0.001
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_burn_checked(
     alt_stubbed_sender, alt_stubbed_sender_token_account_pk, test_token
@@ -287,7 +287,7 @@ async def test_burn_checked(
     assert balance_info["uiAmount"] == 0.0
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_get_accounts(alt_stubbed_sender, test_token):  # pylint: disable=redefined-outer-name
     """Test get token accounts."""
@@ -300,7 +300,7 @@ async def test_get_accounts(alt_stubbed_sender, test_token):  # pylint: disable=
         assert parsed_data["owner"] == str(alt_stubbed_sender.public_key())
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_approve(
     alt_stubbed_sender, alt_stubbed_receiver, alt_stubbed_sender_token_account_pk, test_token, test_http_client_async
@@ -320,7 +320,7 @@ async def test_approve(
     assert account_info.delegated_amount == expected_amount_delegated
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_revoke(
     alt_stubbed_sender, alt_stubbed_receiver, alt_stubbed_sender_token_account_pk, test_token, test_http_client_async
@@ -342,7 +342,7 @@ async def test_revoke(
     assert account_info.delegated_amount == 0
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_approve_checked(
     alt_stubbed_sender, alt_stubbed_receiver, alt_stubbed_sender_token_account_pk, test_token, test_http_client_async
@@ -363,7 +363,7 @@ async def test_approve_checked(
     assert account_info.delegated_amount == expected_amount_delegated
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_freeze_account(
     alt_stubbed_sender_token_account_pk, freeze_authority, test_token, test_http_client_async
@@ -383,7 +383,7 @@ async def test_freeze_account(
     assert account_info.is_frozen is True
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_thaw_account(
     alt_stubbed_sender_token_account_pk, freeze_authority, test_token, test_http_client_async
@@ -400,7 +400,7 @@ async def test_thaw_account(
     assert account_info.is_frozen is False
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_close_account(
     alt_stubbed_sender,
@@ -428,7 +428,7 @@ async def test_close_account(
     assert info_resp["result"]["value"] is None
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 @pytest.mark.asyncio
 async def test_create_multisig(
     alt_stubbed_sender, alt_stubbed_receiver, test_token, test_http_client

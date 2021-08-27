@@ -8,7 +8,7 @@ from solana.transaction import Transaction
 from .utils import AIRDROP_AMOUNT, assert_valid_response, confirm_transaction, generate_expected_meta_after_airdrop
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_request_air_drop(stubbed_sender, test_http_client):
     """Test air drop to stubbed_sender."""
     resp = test_http_client.request_airdrop(stubbed_sender.public_key(), AIRDROP_AMOUNT)
@@ -19,7 +19,7 @@ def test_request_air_drop(stubbed_sender, test_http_client):
     assert resp["result"]["meta"] == expected_meta
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_send_transaction_and_get_balance(stubbed_sender, stubbed_receiver, test_http_client):
     """Test sending a transaction to localnet."""
     # Create transfer tx to transfer lamports from stubbed sender to stubbed_receiver
@@ -66,7 +66,7 @@ def test_send_transaction_and_get_balance(stubbed_sender, stubbed_receiver, test
     assert resp["result"]["value"] == 954
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_send_raw_transaction_and_get_balance(stubbed_sender, stubbed_receiver, test_http_client):
     """Test sending a raw transaction to localnet."""
     # Get a recent blockhash
@@ -112,49 +112,49 @@ def test_send_raw_transaction_and_get_balance(stubbed_sender, stubbed_receiver, 
     assert resp["result"]["value"] == 1954
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_block_commitment(test_http_client):
     """Test get block commitment."""
     resp = test_http_client.get_block_commitment(5)
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_block_time(test_http_client):
     """Test get block time."""
     resp = test_http_client.get_block_time(5)
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_cluster_nodes(test_http_client):
     """Test get cluster nodes."""
     resp = test_http_client.get_cluster_nodes()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_confirmed_block(test_http_client):
     """Test get confirmed block."""
     resp = test_http_client.get_confirmed_block(1)
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_confirmed_block_with_encoding(test_http_client):
     """Test get confrimed block with encoding."""
     resp = test_http_client.get_confirmed_block(1, encoding="base64")
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_confirmed_blocks(test_http_client):
     """Test get confirmed blocks."""
     resp = test_http_client.get_confirmed_blocks(5, 10)
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_confirmed_signature_for_address2(test_http_client):
     """Test get confirmed signature for address2."""
     resp = test_http_client.get_confirmed_signature_for_address2("Vote111111111111111111111111111111111111111", limit=1)
@@ -162,28 +162,28 @@ def test_get_confirmed_signature_for_address2(test_http_client):
 
 
 # TODO(michael): This RPC call is only available in solana-core v1.7 or newer.
-# @pytest.mark.integration
+# #@pytest.mark.integration
 # def test_get_signatures_for_address(test_http_client):
 #     """Test get signatures for addresses."""
 #     resp = test_http_client.get_signatures_for_address("Vote111111111111111111111111111111111111111", limit=1)
 #     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_epoch_info(test_http_client):
     """Test get epoch info."""
     resp = test_http_client.get_epoch_info()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_epoch_schedule(test_http_client):
     """Test get epoch schedule."""
     resp = test_http_client.get_epoch_schedule()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_fee_calculator_for_blockhash(test_http_client):
     """Test get fee calculator for blockhash."""
     resp = test_http_client.get_recent_blockhash()
@@ -192,105 +192,105 @@ def test_get_fee_calculator_for_blockhash(test_http_client):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_slot(test_http_client):
     """Test get slot."""
     resp = test_http_client.get_slot()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_fees(test_http_client):
     """Test get fees."""
     resp = test_http_client.get_fees()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_first_available_block(test_http_client):
     """Test get first available block."""
     resp = test_http_client.get_first_available_block()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_genesis_hash(test_http_client):
     """Test get genesis hash."""
     resp = test_http_client.get_genesis_hash()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_identity(test_http_client):
     """Test get identity."""
     resp = test_http_client.get_genesis_hash()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_inflation_governor(test_http_client):
     """Test get inflation governor."""
     resp = test_http_client.get_inflation_governor()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_inflation_rate(test_http_client):
     """Test get inflation rate."""
     resp = test_http_client.get_inflation_rate()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_largest_accounts(test_http_client):
     """Test get largest accounts."""
     resp = test_http_client.get_largest_accounts()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_leader_schedule(test_http_client):
     """Test get leader schedule."""
     resp = test_http_client.get_leader_schedule()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_minimum_balance_for_rent_exemption(test_http_client):
     """Test get minimum balance for rent exemption."""
     resp = test_http_client.get_minimum_balance_for_rent_exemption(50)
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_slot_leader(test_http_client):
     """Test get slot leader."""
     resp = test_http_client.get_slot_leader()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_supply(test_http_client):
     """Test get slot leader."""
     resp = test_http_client.get_supply()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_transaction_count(test_http_client):
     """Test get transactinon count."""
     resp = test_http_client.get_transaction_count()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_version(test_http_client):
     """Test get version."""
     resp = test_http_client.get_version()
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_account_info(stubbed_sender, test_http_client):
     """Test get_account_info."""
     resp = test_http_client.get_account_info(stubbed_sender.public_key())
@@ -301,7 +301,7 @@ def test_get_account_info(stubbed_sender, test_http_client):
     assert_valid_response(resp)
 
 
-@pytest.mark.integration
+# @pytest.mark.integration
 def test_get_vote_accounts(test_http_client):
     """Test get vote accounts."""
     resp = test_http_client.get_vote_accounts()
